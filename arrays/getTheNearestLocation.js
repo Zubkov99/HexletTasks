@@ -16,20 +16,20 @@ const getTheNearestLocation = (location, point) => {
         return null
     }
 
-    let test = [];
+    let result = [];
     location.map((item, index)=> {
 
         let distance = getDistance(item[1], point)
         if(index === 0) {
-            test.push(distance, index)
+            result.push(distance, index)
         }
-        if(test[0] > distance) {
-            test = [distance, index]
+        if(result[0] > distance) {
+            result = [distance, index]
         }
     })
 
 
-    return location[test[1]]
+    return location[result[1]]
 }
 
 const locations = [
