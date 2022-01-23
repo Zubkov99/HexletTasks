@@ -20,8 +20,6 @@ class Square {
     }
   }
 
-
-
   const square = new Square(10);
   console.log(square.getSide());
 
