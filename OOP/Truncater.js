@@ -10,16 +10,12 @@ class Truncater {
       length: 200,
     };
     constructor(options = {}) {
-      this.defaultOptions = Truncater.defaultOptions;
-      this.options = options;
+        this.options = { ...this.constructor.defaultOptions, ...options };
     };
-    truncate(str, options = {}) {
-      const allOptions = {...this.defaultOptions, ...this.options, ...options};
-      if(str.length > allOptions.length) {
-        return str.slice(0, (allOptions.length)) + allOptions.separator;
+    truncate(text, options = {}) {
+        const { length, separator } = { ...this.options, ...options };
+        return text.length < length ? text : text.slice(0, length) + separator;
       }
-      return str
-    }
   };
 
   const truncater = new Truncater({ 'length': 6 });
