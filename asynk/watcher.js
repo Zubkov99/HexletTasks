@@ -8,3 +8,26 @@ import fs from 'fs';
 // Путь до файла, который нужно отслеживать
 // Период отслеживания
 // Колбек, принимающий аргументом ошибку
+
+const watch = (filePath, time, callback) => {
+
+    const timerid = setInterval(() => {
+      fs.stat(filePath, (err, data) => {
+  
+        if(err) {
+          clearInterval(timerid)
+          return callback(err)
+        }
+  
+        if(Date.now() - data.mtimeMs < time) {
+          callback(null)
+        }
+      })
+    }, time)
+    
+    return timerid
+  }
+  
+  const id = watch('index.html', 1000, (err) => {
+    console.log('Wow!');
+  });
