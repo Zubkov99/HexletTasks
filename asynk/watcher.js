@@ -31,3 +31,5 @@ const watch = (filePath, time, callback) => {
   const id = watch('index.html', 1000, (err) => {
     console.log('Wow!');
   });
+
+setTimeout(() => clearInterval(id), 5000);
