@@ -26,4 +26,4 @@ const checker = async (website) => {
   .then((data) => data.filter(item => typeof item === 'string' && !item.includes('local')))
 }
 const links = await checker('https://www.google.com/');
-// console.log(links);
+console.log(links);
