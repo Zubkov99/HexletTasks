@@ -23,6 +23,4 @@ const bigLettersCount = (str) => {
 
   };
 
-
   console.log(compare('aaBBcDcF', 'AA AA'));
-  
